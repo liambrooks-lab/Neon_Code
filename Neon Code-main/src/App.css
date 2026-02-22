@@ -1,0 +1,212 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", "Segoe UI", sans-serif;
+}
+
+body {
+  background: #020617;
+  color: #e5e7eb;
+}
+
+.app {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ===== Top Bar ===== */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 16px;
+  height: 56px;
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
+}
+
+.brand {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.brand-logo {
+  width: 26px;
+}
+
+.brand-text {
+  font-weight: 600;
+}
+
+.topbar-right {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.lang-select {
+  background: #020617;
+  color: #e5e7eb;
+  border: 1px solid #334155;
+  border-radius: 6px;
+  padding: 6px 8px;
+}
+
+/* Buttons */
+
+.run-btn {
+  padding: 6px 14px;
+  border-radius: 6px;
+  border: none;
+  background: #22c55e;
+  color: #022c22;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Mobile icons */
+
+.mobile-actions {
+  display: none;
+  gap: 6px;
+}
+
+.mobile-actions button {
+  background: #1e293b;
+  border: none;
+  color: #e5e7eb;
+  padding: 8px 10px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+
+/* Tabs */
+
+.mobile-tabs {
+  display: none;
+  background: #020617;
+  border-bottom: 1px solid #1e293b;
+}
+
+.mobile-tabs button {
+  flex: 1;
+  padding: 10px;
+  background: transparent;
+  border: none;
+  color: #94a3b8;
+  font-weight: 600;
+}
+
+.mobile-tabs .active {
+  color: #22c55e;
+  border-bottom: 2px solid #22c55e;
+}
+
+/* ===== Main ===== */
+
+.main {
+  flex: 1;
+  display: flex;
+  padding: 12px;
+  gap: 12px;
+}
+
+.editor-area,
+.output-area {
+  border-radius: 10px;
+  background: #020617;
+  border: 1px solid #1e293b;
+}
+
+/* 🔒 Caret + bleed fix */
+
+.editor-area {
+  flex: 2;
+  position: relative;
+  overflow: hidden;
+}
+
+.editor-area * {
+  cursor: text;
+}
+
+.monaco-editor,
+.monaco-editor .overflow-guard {
+  contain: strict;
+}
+
+.monaco-editor .cursors-layer {
+  will-change: transform;
+}
+
+.output-area {
+  flex: 1;
+  padding: 12px;
+}
+
+.output-area pre {
+  font-family: "JetBrains Mono", monospace;
+  font-size: 13px;
+}
+
+/* Resize */
+
+.resize-bar {
+  width: 6px;
+  cursor: col-resize;
+}
+
+/* Status */
+
+.status-bar {
+  height: 26px;
+  font-size: 12px;
+  padding: 0 12px;
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #1e293b;
+  color: #94a3b8; /* soft grey like VS Code */
+}
+
+/* ===== Mobile ===== */
+
+@media (max-width: 768px) {
+  .run-btn {
+    display: none;
+  }
+
+  .mobile-actions {
+    display: flex;
+  }
+
+  .mobile-tabs {
+    display: flex;
+  }
+
+  .main {
+    padding: 8px;
+  }
+
+  .resize-bar {
+    display: none;
+  }
+}
+
+/* ===== Tablet ===== */
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .main {
+    padding: 10px;
+    gap: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .topbar {
+    gap: 6px;
+  }
+}
